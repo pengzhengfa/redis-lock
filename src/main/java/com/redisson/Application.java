@@ -14,6 +14,10 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * 高并发分布式锁如何实现,使用分段锁来实现
+     * @return
+     */
     @Bean
     public Redisson redisson() {
         //此为单机模式
