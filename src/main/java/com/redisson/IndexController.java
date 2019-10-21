@@ -38,12 +38,12 @@ public class IndexController {
         //获取锁对象
         RLock redissonLock = redisson.getLock(lockKey);
         try {
-            Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, clientId,10,TimeUnit.SECONDS);
-            //设置超时时间
-            stringRedisTemplate.expire(lockKey,30,TimeUnit.SECONDS);
-            if (!result) {
-                return "1001";
-            }
+//            Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, clientId,10,TimeUnit.SECONDS);
+//            //设置超时时间
+//            stringRedisTemplate.expire(lockKey,30,TimeUnit.SECONDS);
+//            if (!result) {
+//                return "1001";
+//            }
             //加锁,实现锁续命的功能
             redissonLock.lock();
             int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
@@ -58,10 +58,10 @@ public class IndexController {
         }finally {
             //锁释放
             redissonLock.unlock();
-            //谁加的锁,谁去释放
-            if (clientId.equals(stringRedisTemplate.opsForValue().get(lockKey))){
-                stringRedisTemplate.delete("lockKey");
-            }
+//            //谁加的锁,谁去释放
+//            if (clientId.equals(stringRedisTemplate.opsForValue().get(lockKey))){
+//                stringRedisTemplate.delete("lockKey");
+//            }
         }
         return "end";
     }
