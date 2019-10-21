@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b359c44-5459-45b8-8c8d-ccd164434d1d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/redisson/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/redisson/IndexController.java" afterDir="false" />
-    </list>
+    <list default="true" id="7b359c44-5459-45b8-8c8d-ccd164434d1d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571626422178</updated>
-      <workItem from="1571626428001" duration="8903000" />
+      <workItem from="1571626428001" duration="9406000" />
     </task>
     <task id="LOCAL-00001" summary="工程优化">
       <created>1571641117267</created>
@@ -97,7 +94,21 @@
       <option name="project" value="LOCAL" />
       <updated>1571641117268</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="redission实现分布锁,以及锁续命">
+      <created>1571642331957</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571642331957</updated>
+    </task>
+    <task id="LOCAL-00003" summary="redission实现分布锁以及我们自己实现的分布式锁对比,注释的是我们实现的分布式锁">
+      <created>1571642454289</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571642454289</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +127,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="工程优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="工程优化" />
+    <MESSAGE value="redission实现分布锁,以及锁续命" />
+    <MESSAGE value="redission实现分布锁以及我们自己实现的分布式锁对比,注释的是我们实现的分布式锁" />
+    <option name="LAST_COMMIT_MESSAGE" value="redission实现分布锁以及我们自己实现的分布式锁对比,注释的是我们实现的分布式锁" />
   </component>
 </project>
