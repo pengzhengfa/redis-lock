@@ -1,6 +1,7 @@
 package com.redisson;
 
 import org.redisson.Redisson;
+import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,8 @@ public class IndexController {
     public String deductStock() {
         String lockKey = "product_001";
         String clientId = UUID.randomUUID().toString();
+        //获取锁对象
+        RLock redissonLock = redisson.getLock(lockKey);
         try {
             Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, clientId,10,TimeUnit.SECONDS);
             //设置超时时间
@@ -41,6 +44,8 @@ public class IndexController {
             if (!result) {
                 return "1001";
             }
+            //加锁,实现锁续命的功能
+            redissonLock.lock();
             int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
             if (stock > 0) {
                 int realStock = stock - 1;
@@ -51,6 +56,8 @@ public class IndexController {
             }
 
         }finally {
+            //锁释放
+            redissonLock.unlock();
             //谁加的锁,谁去释放
             if (clientId.equals(stringRedisTemplate.opsForValue().get(lockKey))){
                 stringRedisTemplate.delete("lockKey");
